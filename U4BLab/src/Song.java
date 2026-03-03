@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Song {
     private String title;
     private String artist;
@@ -8,16 +6,15 @@ public class Song {
     private String genre;
     private String secs;
 
-    public Song(String t, String artist, String album, String y, String g, String s) {
+    public Song(String t, String artist, String album, String y, String g) {
         title = t;
         this.artist = artist;
         this.album = album;
         year = y;
         genre = g;
-        secs = s;
     }
     public String toString(){
-        return String.format("%20s %20s %20s %20d %10s",title, artist, album, year, genre);
+        return String.format("%20s %20s %20s %20s %10s",title, artist, album, year, genre);
     }
     public String getTitle() {
         return title;
