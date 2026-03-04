@@ -52,7 +52,9 @@ public class SpotifyTester {
                     //
                     System.out.println("Which Genre");
                     System.out.println("Pop,Rock,Hip-Hop,R&B,Electronic,Country Rap(ikr what),Synth Pop(Diva much?)");
-                    songs.genreSort(inF.nextLine());
+                    if(!songs.genreSort(inF.nextLine())){
+                        System.out.println("Not a genre, look at the list I lovingly made");
+                    }
 
                     break;
 
@@ -60,7 +62,7 @@ public class SpotifyTester {
                     pressedQuit = true;
                     break;
 
-                default: System.out.println("can you count?");
+                default: System.out.println("know what? Lets count to 6. \n 1 \n 2 \n 3 \n 4 \n 5 \n 6 \n not whatever you put");
             }
             } catch (InputMismatchException e) {
                 System.out.println("JUST ENTER A NUMBER, NOTHING ELSE, LIKE PLEASE I MEAN IF ITS A TYPO I UNDERSTAND BUT DID YOU GENUINELY THINK A BACKSLASH WAS A VALID INPUT????????");

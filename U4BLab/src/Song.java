@@ -14,7 +14,7 @@ public class Song {
         genre = g;
     }
     public String toString(){
-        return String.format("%20s %20s %20s %20s %10s",title, artist, album, year, genre);
+        return String.format("%-25s %-20s %-25s %-20s %-10s",title, artist, album, year, genre);
     }
     public String getTitle() {
         return title;

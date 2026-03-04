@@ -23,19 +23,22 @@ public class Playlist {
 
 
     public String toString() {
-        String str = "";
+        String str = String.format("%-25s %-20s %-25s %-20s %-10s \n","Title", "Artist", "Album", "Year", "Genre");;
         for (Song s : songs) {
             str += s.toString() + "\n";
         }
         return str;
     }
 
-    public void genreSort(String str){
+    public boolean genreSort(String str){
+        boolean present = false;
         for (Song s : songs) {
             if (s.getGenre().equalsIgnoreCase(str)){
                 System.out.println(s.toString());
+                present = true;
             }
         }
+        return present;
     }
     public void artistSortAZ(){
         for (int i = 0; i < songs.size() - 1; i++) {
