@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Playlist {
+    //stores all Song objects in the playlist
     private ArrayList<Song> songs;
+    //initialize a playlist
     public Playlist() {
         songs = new ArrayList<Song>();
     }
+    //reads data from the file and fills arr with songs
     public void makePlaylist() throws FileNotFoundException {
         //wrong
         Scanner inF = new Scanner(new File("H:\\M359 Milanov\\M359-Repo\\u4b-lab-spotify-Sleepy265\\U4BLab\\spotify_unique_years_artists.txt"));
@@ -21,7 +24,10 @@ public class Playlist {
         inF.close();
     }
 
-
+    /**
+     *
+     * @return playlist array in formatted string
+     */
     public String toString() {
         String str = String.format("%-25s %-20s %-25s %-20s %-10s \n","Title", "Artist", "Album", "Year", "Genre");;
         for (Song s : songs) {
@@ -30,6 +36,11 @@ public class Playlist {
         return str;
     }
 
+    /**
+     *
+     * @param str
+     * @return boolean so can be used in if statement in case 5 in tester, also formats playlist
+     */
     public boolean genreSort(String str){
         boolean present = false;
         for (Song s : songs) {
@@ -40,6 +51,10 @@ public class Playlist {
         }
         return present;
     }
+
+    /**
+     * artist alphabetically
+     */
     public void artistSortAZ(){
         for (int i = 0; i < songs.size() - 1; i++) {
             int minIndex = i;
@@ -52,10 +67,15 @@ public class Playlist {
             songs.set(minIndex, songs.set(i, songs.get(minIndex)));
         }
         }
+
+    /**
+     * artist sort reverse alphabetically
+     */
     public void artistSortZA(){
         for (int i = 0; i < songs.size(); i++) {
             int minIndex = i;
             for (int j = i; j < songs.size(); j++) {
+                //sets min index if the checked num is less than the first in iteration
                 if (songs.get(j).getArtist().compareToIgnoreCase(songs.get(minIndex).getArtist()) > 0) {
                     minIndex = j;
                 }
@@ -63,6 +83,10 @@ public class Playlist {
             songs.set(minIndex, songs.set(i, songs.get(minIndex)));
         }
     }
+
+    /**
+     * sorts by release year chronologically
+     */
     public void releaseYear() {
         for (int i = 1; i < songs.size(); i++) {
             //saves element val
@@ -77,6 +101,9 @@ public class Playlist {
             songs.set(index, temp);
         }
     }
+    /**
+     * sorts by release year reverse chronologically
+     */
     public void releaseYearRev() {
         for (int i = 1; i < songs.size(); i++) {
             //saves element val

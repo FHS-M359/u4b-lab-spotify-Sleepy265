@@ -6,6 +6,16 @@ public class Song {
     private String genre;
     private String secs;
 
+    /**
+     *
+     * @param t (title)
+     * @param artist (artist)
+     * @param album (album)
+     * @param y (release date)
+     * @param g (genre)
+     *          seems that time was irrelevent here, so removed it to make toString and fxns in Playlist smoother
+     *          year is a string so the makePlaylist doesn't have to deal with multiple data types
+     */
     public Song(String t, String artist, String album, String y, String g) {
         title = t;
         this.artist = artist;
@@ -13,6 +23,11 @@ public class Song {
         year = y;
         genre = g;
     }
+
+    /**
+     *
+     * @return formatted string of song arr, same format as playlist toString
+     */
     public String toString(){
         return String.format("%-25s %-20s %-25s %-20s %-10s",title, artist, album, year, genre);
     }
